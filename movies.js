@@ -20,5 +20,8 @@ const movies = {
     jsonMovie.id = this.listOfMovies.length + 1;
     this.listOfMovies.push(jsonMovie);
     return jsonMovie;
+  },
+  getMovieById: function(id) {
+    return this.listOfMovies[id - 1];
   }
 };
