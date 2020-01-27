@@ -24,8 +24,7 @@ const movies = {
   getMovieById: function(id) {
     return this.listOfMovies[id - 1];
   },
-  updateMovie: function(id, jsonMovie) {
-    const { title, year, genre } = jsonMovie;
+  updateMovie: function(id, { title, year, genre }) {
     const movieToUpdate = this.listOfMovies[id - 1];
     movieToUpdate.title = title || movieToUpdate.title;
     movieToUpdate.year = year || movieToUpdate.year;
