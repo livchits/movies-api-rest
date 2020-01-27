@@ -12,5 +12,8 @@ const movies = {
       year: 1987,
       genre: 'Science Fiction'
     }
-  ]
+  ],
+  get list() {
+    return this.listOfMovies;
+  }
 };
