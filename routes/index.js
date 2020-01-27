@@ -19,3 +19,14 @@ router
 
     return res.json(movies.addMovie(req.body));
   });
+
+router.route('/movies/:id').get((req, res, next) => {
+  const { id } = req.params;
+  const movieWithId = movies.movieById(Number(id));
+  if (movieWithId) {
+    return res.json(movieWithId);
+  }
+  const err = new Error(`404 - The movie with the id ${id} was not found`);
+  err.status = 404;
+  return next(err);
+});
