@@ -25,3 +25,5 @@ const movies = {
     return this.listOfMovies[id - 1];
   }
 };
+
+module.exports = movies;
