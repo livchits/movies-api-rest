@@ -46,3 +46,5 @@ router
     }
     return res.json(movies.updateMovie(id, req.body));
   });
+
+module.exports = router;
