@@ -22,7 +22,7 @@ router
 
 router.route('/movies/:id').get((req, res, next) => {
   const { id } = req.params;
-  const movieWithId = movies.movieById(Number(id));
+  const movieWithId = movies.getMovieById(Number(id));
   if (movieWithId) {
     return res.json(movieWithId);
   }
