@@ -15,5 +15,10 @@ const movies = {
   ],
   get list() {
     return this.listOfMovies;
+  },
+  addMovie: function(jsonMovie) {
+    jsonMovie.id = this.listOfMovies.length + 1;
+    this.listOfMovies.push(jsonMovie);
+    return jsonMovie;
   }
 };
