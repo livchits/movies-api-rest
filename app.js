@@ -5,7 +5,7 @@ const morgan = require('morgan');
 
 dotenv.config();
 
-const { PORT = 8001, HOSTNAME } = process.env;
+const { PORT = 8001, HOSTNAME = 'localhost' } = process.env;
 
 const app = express();
 
