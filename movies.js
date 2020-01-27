@@ -23,6 +23,14 @@ const movies = {
   },
   getMovieById: function(id) {
     return this.listOfMovies[id - 1];
+  },
+  updateMovie: function(id, jsonMovie) {
+    const { title, year, genre } = jsonMovie;
+    const movieToUpdate = this.listOfMovies[id - 1];
+    movieToUpdate.title = title || movieToUpdate.title;
+    movieToUpdate.year = year || movieToUpdate.year;
+    movieToUpdate.genre = genre || movieToUpdate.genre;
+    return movieToUpdate;
   }
 };
 
