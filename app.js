@@ -13,4 +13,6 @@ app.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
 
 app.use(express.json());
 
+app.use('/api', routes);
+
 app.listen(PORT, () => console.log(`Server listening on http://${HOSTNAME}:${PORT}`));
