@@ -31,6 +31,11 @@ router.route('/movies/genres').get((req, res) => {
   return res.json(propsList);
 });
 
+router.route('/movies/years').get((req, res) => {
+  const propsList = movies.getMoviesProps('year');
+  return res.json(propsList);
+});
+
 router
   .route('/movies/:id')
   .get((req, res, next) => {
