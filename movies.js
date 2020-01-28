@@ -39,6 +39,13 @@ const movies = {
       typeof movie[key] === 'string' ? movie[key].toLowerCase() === value : movie[key] === Number(value)
     );
     return filteredMovies;
+  },
+  getMoviesProps: function(prop) {
+    const props = this.list.reduce((acc, cur) => {
+      acc.push(cur[prop]);
+      return acc;
+    }, []);
+    return [...new Set(props)];
   }
 };
 
