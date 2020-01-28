@@ -7,8 +7,8 @@ const { postValidation, putValidation } = require('../validations');
 router
   .route('/movies')
   .get((req, res) => {
+    //chequea que el objeto query no esté vacío
     if (Object.keys(req.query).length > 0) {
-      //chequea que el objeto query no esté vacío
       const criteria = req.query;
       const filteredMovies = movies.filterByCriteria(criteria);
       return res.json(filteredMovies);
@@ -25,6 +25,11 @@ router
 
     return res.json(movies.addMovie(req.body));
   });
+
+router.route('/movies/genres').get((req, res) => {
+  const propsList = movies.getMoviesProps('genre');
+  return res.json(propsList);
+});
 
 router
   .route('/movies/:id')
