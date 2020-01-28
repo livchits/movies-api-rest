@@ -61,6 +61,16 @@ router
       return res.json(movies.addMovie(req.body));
     }
     return res.json(movies.updateMovie(id, req.body));
+  })
+  .delete((req, res, next) => {
+    const { id } = req.params;
+    if (!movies.getMovieById(Number(id))) {
+      const err = new Error(`404 - The movie with the id ${id} was not found`);
+      err.status = 404;
+      return next(err);
+    }
+    movies.deleteMovie(id);
+    return movies.updateIds(); //pensar en sumar una respuesta con un mensaje
   });
 
 module.exports = router;
