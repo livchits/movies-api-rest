@@ -7,6 +7,12 @@ const { postValidation, putValidation } = require('../validations');
 router
   .route('/movies')
   .get((req, res) => {
+    if (Object.keys(req.query).length > 0) {
+      //chequea que el objeto query no esté vacío
+      const criteria = req.query;
+      const filteredMovies = movies.filterByCriteria(criteria);
+      return res.json(filteredMovies);
+    }
     res.json(movies.list);
   })
   .post(checkSchema(postValidation), (req, res, next) => {
