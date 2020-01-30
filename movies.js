@@ -45,6 +45,10 @@ const movies = {
       return acc;
     }, []);
     return [...new Set(props)];
+  },
+  orderByYear: function() {
+    const orderedMovies = [...this.list].sort((a, b) => a.year - b.year);
+    return orderedMovies;
   }
 };
 
