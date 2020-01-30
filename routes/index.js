@@ -9,6 +9,15 @@ router
   .get((req, res) => {
     //chequea que el objeto query no esté vacío
     if (Object.keys(req.query).length) {
+      //toma el valor de la query string y lo pasa a minúsculas
+      const orderCriteria = Object.values(req.query)[0].toLowerCase();
+      if (orderCriteria === 'title') {
+        return res.json(movies.orderByTitle());
+      }
+      if (orderCriteria === 'year') {
+        return res.json(movies.orderByYear());
+      }
+
       const criteria = req.query;
       const filteredMovies = movies.filterByCriteria(criteria);
       return res.json(filteredMovies);
