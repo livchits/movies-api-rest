@@ -36,12 +36,12 @@ router
   });
 
 router.route('/movies/genres').get((req, res) => {
-  const propsList = movies.getMoviesProps('genre');
+  const propsList = movies.getProps('genre');
   return res.json(propsList);
 });
 
 router.route('/movies/years').get((req, res) => {
-  const propsList = movies.getMoviesProps('year');
+  const propsList = movies.getProps('year');
   return res.json(propsList);
 });
 

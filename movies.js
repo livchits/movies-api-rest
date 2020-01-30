@@ -39,7 +39,7 @@ const movies = {
     );
     return filteredMovies;
   },
-  getMoviesProps: function(prop) {
+  getProps: function(prop) {
     const props = this.list.reduce((acc, cur) => {
       acc.push(cur[prop]);
       return acc;
