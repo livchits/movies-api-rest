@@ -49,6 +49,10 @@ const movies = {
   orderByYear: function() {
     const orderedMovies = [...this.list].sort((a, b) => a.year - b.year);
     return orderedMovies;
+  },
+  orderByTitle: function() {
+    const orderedMovies = [...this.list].sort((a, b) => a.title.localeCompare(b.title, { sensitivity: 'base' }));
+    return orderedMovies;
   }
 };
 
