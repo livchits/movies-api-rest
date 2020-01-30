@@ -8,7 +8,7 @@ router
   .route('/movies')
   .get((req, res) => {
     //chequea que el objeto query no esté vacío
-    if (Object.keys(req.query).length > 0) {
+    if (Object.keys(req.query).length) {
       const criteria = req.query;
       const filteredMovies = movies.filterByCriteria(criteria);
       return res.json(filteredMovies);
