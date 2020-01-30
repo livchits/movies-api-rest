@@ -32,8 +32,7 @@ const movies = {
     return movieToUpdate;
   },
   filterByCriteria: function(filterCriteria) {
-    const [key] = Object.keys(filterCriteria);
-    const [value] = Object.values(filterCriteria);
+    const [[key, value]] = Object.entries(filterCriteria);
 
     const filteredMovies = this.list.filter(movie =>
       typeof movie[key] === 'string' ? movie[key].toLowerCase() === value : movie[key] === Number(value)
